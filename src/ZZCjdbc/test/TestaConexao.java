@@ -9,9 +9,23 @@ import java.sql.SQLException;
 
 public class TestaConexao {
     public static void main(String[] args) {
-        Comprador comprador = new Comprador("111.111.111-20", "Carlo Alberto de Souza");
+//        deletar();
+        atualizar();
+    }
 
-        CompradorDB compradorDB = new CompradorDB();
-        compradorDB.salvar(comprador);
+    public static void inserir(){
+        Comprador comprador = new Comprador("111.111.111-20", "Carlo Alberto de Souza");
+        CompradorDB.salvar(comprador);
+    }
+
+    public static void deletar(){
+        Comprador comprador = new Comprador();
+        comprador.setId(2);
+        CompradorDB.delete(comprador);
+    }
+
+    public static void atualizar(){
+        Comprador comprador = new Comprador(1, "000.000.000-00", "Maria Oliveira");
+        CompradorDB.update(comprador);
     }
 }
