@@ -1,5 +1,6 @@
 package ZZCjdbc.db;
 
+import ZZCjdbc.classes.Comprador;
 import ZZCjdbc.conn.ConexaoFactory;
 
 import java.sql.Connection;
@@ -7,9 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CompradorDB {
-    public void salvar(){
+    public void salvar(Comprador comprador){
         // 1. Comando a ser executado...
-        String sql = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('089.440.348.52', 'Maria Aparecida da Motta');";
+        String sql = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('" + comprador.getCPF() + "', '" + comprador.getNome() + "');";
 
         // 2. Estabelecer conexão...
         Connection conn = ConexaoFactory.getConexao();
